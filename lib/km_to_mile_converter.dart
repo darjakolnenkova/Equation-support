@@ -11,23 +11,24 @@ class KmToMileConverterScreen extends StatefulWidget {  // экран для к�
 class _KmToMileConverterScreenState extends State<KmToMileConverterScreen> {
   final TextEditingController _kmController = TextEditingController();
   double? _miles;    // переменная для хранения результата конвертации
-  final controller = KmMileConverterController();  // Инициализация контроллера
+  final controller = KmMileConverterController();  // инициализация контроллера
 
-  void _convert() async {
-    final km = double.tryParse(_kmController.text);
+  void _convert() async {   // метод конвертации
+    final km = double.tryParse(_kmController.text);  // преобразование текста в число
     if (km != null) {
-      final result = await controller.convertKmToMiles(km);
+      final result = await controller.convertKmToMiles(km);  // получение результата
       setState(() {
-        _miles = result;
+        _miles = result;  // обновление состояния (и интерфейса)
       });
     }
   }
 
+  // интерфейс экрана
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text( 'Конвертация: км в мили'),
+      appBar: AppBar(                                     // создание экрана с верхней панелью
+        title: const Text( 'Конвертация: км в мили'),     // и заголовком
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),  // отступы

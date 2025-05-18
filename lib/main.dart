@@ -1,22 +1,22 @@
-import 'package:flutter/material.dart';  // подключаю нужные бибилиотеки
+import 'package:flutter/material.dart';
 import 'calculator_ui.dart';
 
 void main() => runApp(const CalculatorApp());       // запуск приложения
 
-class CalculatorApp extends StatelessWidget {
-  const CalculatorApp({Key? key}) : super(key: key);    // конструктор
+class CalculatorApp extends StatelessWidget {       // главный виджет приложения
+  const CalculatorApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {     // настройка темы и внешнего вида
     final base = ThemeData.light();
 
-    return MaterialApp(   // настраиваю внешний вид приложения
+    return MaterialApp(
       title: 'Калькулятор',
       theme: ThemeData.from(
         colorScheme: base.colorScheme.copyWith(
-          primary: const Color(0xFF8B4513),       // основной
-          secondary: Colors.orange,         // вторичный
-          surface: const Color(0xFFB55C44),       // поверхности
+          primary: const Color(0xFF8B4513),
+          secondary: Colors.orange,
+          surface: const Color(0xFFB55C44),
         ),
         textTheme: base.textTheme.copyWith(
           bodyLarge: const TextStyle(color: Color(0xFF800000)),
