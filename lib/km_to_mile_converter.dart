@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'controller.dart';
 
 class KmToMileConverterScreen extends StatefulWidget {  // экран для конвертации км в мили
-  const KmToMileConverterScreen({Key? key}) : super(key: key);
+  const KmToMileConverterScreen({super.key});
 
   @override
   State<KmToMileConverterScreen> createState() => _KmToMileConverterScreenState();

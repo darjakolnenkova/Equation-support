@@ -6,8 +6,9 @@ import 'controller.dart';
 import 'history_screen.dart';
 import 'database.dart';
 
+
 class CalculatorApp extends StatelessWidget {
-  const CalculatorApp({Key? key}) : super(key: key);
+  const CalculatorApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +23,9 @@ class CalculatorApp extends StatelessWidget {
 }
 
 class CalculatorUI extends StatefulWidget {                         // экран калькулятора
-  const CalculatorUI({Key? key}) : super(key: key);
-                                                                    // состояние сохраняется при действиях
+  const CalculatorUI({super.key});
+
+  // состояние сохраняется при действиях
   @override
   _CalculatorUIState createState() => _CalculatorUIState();
 }
@@ -91,13 +93,13 @@ class _CalculatorUIState extends State<CalculatorUI> {
   // функция расчёта выражения
   double _evaluate(String expression) {
     try {
-      String parsedExpression = expression.replaceAll('x', '*');  // замена x на *
-      Parser p = Parser();  // создание парсера — он будет разбирать выражение
-      Expression exp = p.parse(parsedExpression);  // разбираем строку в математическое выражение (например, "2+3")
-      ContextModel cm = ContextModel();  // создание "пустой" модели — она нужна библиотеке
-      return exp.evaluate(EvaluationType.REAL, cm);  // вычисление значения выражения и возвращение результата
+      String parsedExpression = expression.replaceAll('x', '*'); // замена x на *
+      final parser = ShuntingYardParser(); // создание парсера — он будет разбирать выражение
+      final exp = parser.parse(parsedExpression); // парсинг
+      final cm = ContextModel(); // контекст (переменные, если есть)
+      return exp.evaluate(EvaluationType.REAL, cm); // результат
     } catch (e) {
-      throw Exception("Ошибка");  // если не получилось — выбрасывает ошибку
+      throw Exception("Ошибка"); // при ошибке
     }
   }
 

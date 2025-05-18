@@ -4,7 +4,7 @@ import 'calculator_ui.dart';
 void main() => runApp(const CalculatorApp());       // запуск приложения
 
 class CalculatorApp extends StatelessWidget {       // главный виджет приложения
-  const CalculatorApp({Key? key}) : super(key: key);
+  const CalculatorApp({super.key});
 
   @override
   Widget build(BuildContext context) {     // настройка темы и внешнего вида
